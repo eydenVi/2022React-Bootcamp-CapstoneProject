@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import { FiShoppingCart } from 'react-icons/fi'
+
+import shoppingCart from "../../icons/shop-cart.svg"
 
 const Styles = styled.a`
-	span {
+	img {
 		cursor: pointer;
 		font-size: 1.8em;
 	}
@@ -11,7 +12,9 @@ const Styles = styled.a`
 
 const HeaderShoppingCart = () => {
 	return (
-		<Styles><span><FiShoppingCart /></span></Styles>
+		<Styles>
+			<img src={shoppingCart} alt="cart" width="30" height="30"/>
+		</Styles>
 	)
 }
 
