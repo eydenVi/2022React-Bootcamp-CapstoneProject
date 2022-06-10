@@ -9,38 +9,32 @@ const Styles = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-	  justify-content: center;
-	  margin: 2.5em auto;
+    justify-content: center;
+    margin: 2.5em auto;
   }
-	
-	h3 {
-		font-size: 2.4em;
-		font-weight: lighter;
-		margin-top: 2em;
-	}
+
+  h3 {
+    font-size: 2.4em;
+    font-weight: lighter;
+    margin-top: 2em;
+  }
 `
 
 
-const Categories = props => {
-	const {categories} = props;
-	
-	const renderCategories = () => {
-		return categories.map(category => {
-			const {data: categoryInfo} = category;
-			return (
-				<Category
-					properties={categoryInfo}
-					key={category.id}
-				/>
-			)
-		});
-	}
-	
+const Categories = ({categories}) => {
 	return (
 		<Styles>
 			<h3>Categories</h3>
 			<div className="cards-container">
-				{renderCategories()}
+				{categories.map(category => {
+					const {data: categoryInfo} = category;
+					return (
+						<Category
+							properties={categoryInfo}
+							key={category.id}
+						/>
+					)
+				})}
 			</div>
 		</Styles>
 	);

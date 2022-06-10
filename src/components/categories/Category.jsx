@@ -26,25 +26,17 @@ const Styles = styled.div`
 `
 
 
-const Category = props => {
-	const {properties} = props;
+const Category = ({properties}) => {
+	const { main_image: image } = properties;
 	
-	const renderCategoryCard = () => {
-		const { main_image: image } = properties
-		
-		return (
+	return (
+		<Styles>
 			<div className="card">
 				<img src={image?.url} alt="Avatar" width="150px" height="200px" />
 				<div className="container">
 					<h4>{properties?.name}</h4>
 				</div>
 			</div>
-		)
-	}
-	
-	return (
-		<Styles>
-			{renderCategoryCard()}
 		</Styles>
 	);
 };
