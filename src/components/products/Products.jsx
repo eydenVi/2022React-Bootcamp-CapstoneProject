@@ -20,22 +20,22 @@ const Styles = styled.div`
   }
 `
 const Products = ({products}) => {
-	return (<Styles>
-		<h2>Capstone Products</h2>
-		<div className="cards-container">
-			{products.map(product => {
-				const {data: productInfo} = product;
-				return (<Product
-					properties={productInfo}
-					key={product.id}
-				/>)
-			})}
-		</div>
-	</Styles>);
+  return (<Styles>
+    <h2>Capstone Products</h2>
+    <div className="cards-container">
+      {products.map(product => {
+        const {data: productInfo} = product;
+        return (<Product
+          properties={productInfo}
+          key={product.id}
+        />)
+      })}
+    </div>
+  </Styles>);
 };
 
 Products.propTypes = {
-	products: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
 };
 
 export default Products;

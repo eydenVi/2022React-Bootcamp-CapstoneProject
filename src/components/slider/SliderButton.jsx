@@ -39,21 +39,21 @@ const Styles = styled.div`
 `
 
 const SliderButton = ({ direction, move}) => {
-	return (
-		<Styles>
-			<button
-				onClick={move}
-				className={ direction === "next" ? "btn-slide next" : "btn-slide prev" }
-			>
-				<img src={direction === "next" ? rightArrow : leftArrow} alt="arrow" />
-			</button>
-		</Styles>
-	);
+  return (
+    <Styles>
+      <button
+        onClick={move}
+        className={ direction === "next" ? "btn-slide next" : "btn-slide prev" }
+      >
+        <img src={direction === "next" ? rightArrow : leftArrow} alt="arrow" />
+      </button>
+    </Styles>
+  );
 };
 
 SliderButton.propTypes = {
-	direction: PropTypes.string.isRequired,
-	move: PropTypes.func.isRequired,
+  direction: PropTypes.string.isRequired,
+  move: PropTypes.func.isRequired,
 };
 
 export default SliderButton;

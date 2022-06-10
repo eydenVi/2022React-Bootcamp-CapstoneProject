@@ -11,28 +11,28 @@ const Styles = styled.div`
   }
 `
 const SearchField = ({changeSearchField}) => {
-	const [inputValue, setInputValue] = useState('');
-	
-	const handleInputChange = (e) => {
-		setInputValue(e.target.value);
-		changeSearchField(e.target.value);
-	}
-	
-	return (
-		<Styles>
-			<input
-				type="text"
-				placeholder="Search.."
-				name="search"
-				value={inputValue}
-				onChange={handleInputChange}
-			/>
-		</Styles>
-	);
+  const [inputValue, setInputValue] = useState('');
+  
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    changeSearchField(e.target.value);
+  }
+  
+  return (
+    <Styles>
+      <input
+        type="text"
+        placeholder="Search.."
+        name="search"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+    </Styles>
+  );
 };
 
 SearchField.propTypes = {
-	changeSearchField: PropTypes.func.isRequired,
+  changeSearchField: PropTypes.func.isRequired,
 };
 
 export default SearchField;

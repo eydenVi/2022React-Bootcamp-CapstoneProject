@@ -27,25 +27,25 @@ const Styles = styled.div`
 
 
 const Category = ({properties}) => {
-	const {main_image: image} = properties;
-	
-	return (
-		<Styles>
-			<div className="card">
-				<img src={image?.url} alt="Avatar" width="150px" height="200px"/>
-				<div className="container">
-					<h4>{properties?.name}</h4>
-				</div>
-			</div>
-		</Styles>
-	);
+  const {main_image: image} = properties;
+  
+  return (
+    <Styles>
+      <div className="card">
+        <img src={image?.url} alt="Avatar" width="150px" height="200px"/>
+        <div className="container">
+          <h4>{properties?.name}</h4>
+        </div>
+      </div>
+    </Styles>
+  );
 };
 
 Category.propTypes = {
-	properties: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		main_image: PropTypes.object.isRequired,
-	}).isRequired,
+  properties: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    main_image: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default Category;

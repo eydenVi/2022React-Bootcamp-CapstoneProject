@@ -22,26 +22,26 @@ const Styles = styled.div`
 
 
 const Categories = ({categories}) => {
-	return (
-		<Styles>
-			<h3>Categories</h3>
-			<div className="cards-container">
-				{categories.map(category => {
-					const {data: categoryInfo} = category;
-					return (
-						<Category
-							properties={categoryInfo}
-							key={category.id}
-						/>
-					)
-				})}
-			</div>
-		</Styles>
-	);
+  return (
+    <Styles>
+      <h3>Categories</h3>
+      <div className="cards-container">
+        {categories.map(category => {
+          const {data: categoryInfo} = category;
+          return (
+            <Category
+              properties={categoryInfo}
+              key={category.id}
+            />
+          )
+        })}
+      </div>
+    </Styles>
+  );
 };
 
 Categories.propTypes = {
-	categories: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 export default Categories;

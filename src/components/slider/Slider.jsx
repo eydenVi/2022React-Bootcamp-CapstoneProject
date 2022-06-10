@@ -92,64 +92,64 @@ const Styles = styled.div`
 `
 
 const Slider = () => {
-	const {results: slidesData} = dataSlider;
-	const [slideIndex, setSlideIndex] = useState(1);
-	
-	
-	const nextSlide = () => {
-		if (slideIndex !== slidesData.length) {
-			setSlideIndex(slideIndex + 1);
-		} else if (slideIndex === slidesData.length) {
-			setSlideIndex(1);
-		}
-	}
-	
-	const prevSlide = () => {
-		if (slideIndex === 1) {
-			setSlideIndex(slidesData.length);
-		} else if (slideIndex !== 1) {
-			setSlideIndex(slideIndex - 1);
-		}
-	}
-	
-	const renderSlides = () => {
-		return slidesData.map((slide, index) => {
-			const {data} = slide;
-			const {main_image: imageProp} = data;
-			return (
-				<div
-					key={slide.id}
-					className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
-				>
-					<img
-						src={imageProp?.url}
-						alt={imageProp?.alt}
-						width={imageProp?.dimensions?.width}
-						height={imageProp?.dimensions?.height}
-					/>
-				</div>
-			);
-		})
-	};
-	
-	const handleSlideIndex = (index) => setSlideIndex(index)
-	
-	return (
-		<Styles>
-			<div className="slider-container">
-				{renderSlides()}
-				<SliderButton direction="next" move={nextSlide}/>
-				<SliderButton direction="prev" move={prevSlide}/>
-				{slidesData.map((item, index) => (
-					<div
-						onClick={() => handleSlideIndex(index + 1)}
-						className={slideIndex === index + 1 ? "dot active" : "dot"}
-						key={item.id}
-					/>
-				))}
-			</div>
-		</Styles>
-	);
+  const {results: slidesData} = dataSlider;
+  const [slideIndex, setSlideIndex] = useState(1);
+  
+  
+  const nextSlide = () => {
+    if (slideIndex !== slidesData.length) {
+      setSlideIndex(slideIndex + 1);
+    } else if (slideIndex === slidesData.length) {
+      setSlideIndex(1);
+    }
+  }
+  
+  const prevSlide = () => {
+    if (slideIndex === 1) {
+      setSlideIndex(slidesData.length);
+    } else if (slideIndex !== 1) {
+      setSlideIndex(slideIndex - 1);
+    }
+  }
+  
+  const renderSlides = () => {
+    return slidesData.map((slide, index) => {
+      const {data} = slide;
+      const {main_image: imageProp} = data;
+      return (
+        <div
+          key={slide.id}
+          className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
+        >
+          <img
+            src={imageProp?.url}
+            alt={imageProp?.alt}
+            width={imageProp?.dimensions?.width}
+            height={imageProp?.dimensions?.height}
+          />
+        </div>
+      );
+    })
+  };
+  
+  const handleSlideIndex = (index) => setSlideIndex(index)
+  
+  return (
+    <Styles>
+      <div className="slider-container">
+        {renderSlides()}
+        <SliderButton direction="next" move={nextSlide}/>
+        <SliderButton direction="prev" move={prevSlide}/>
+        {slidesData.map((item, index) => (
+          <div
+            onClick={() => handleSlideIndex(index + 1)}
+            className={slideIndex === index + 1 ? "dot active" : "dot"}
+            key={item.id}
+          />
+        ))}
+      </div>
+    </Styles>
+  );
 };
 
 Slider.propTypes = {}

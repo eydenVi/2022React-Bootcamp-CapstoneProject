@@ -66,35 +66,35 @@ const Styles = styled.div`
 
 
 const Product = ({properties}) => {
-	const {mainimage: image} = properties
-	
-	return (
-		<Styles>
-			<div className="card">
-				<div className="card-image">
-					<img src={image?.url} alt="Avatar" width="150px" height="200px"/>
-				</div>
-				<div className="card-content">
-					<div className="card-title">
-						<h4>{properties?.name}</h4>
-					</div>
-					<div className="card-info">
-						<span className="price">${properties?.price}</span>
-						<span className="category">{properties?.category?.slug}</span>
-					</div>
-					<p>{truncate(properties?.description[0].text, 95)}</p>
-					<button className="card-btn">Add to Card</button>
-				</div>
-			</div>
-		</Styles>
-	);
+  const {mainimage: image} = properties
+  
+  return (
+    <Styles>
+      <div className="card">
+        <div className="card-image">
+          <img src={image?.url} alt="Avatar" width="150px" height="200px"/>
+        </div>
+        <div className="card-content">
+          <div className="card-title">
+            <h4>{properties?.name}</h4>
+          </div>
+          <div className="card-info">
+            <span className="price">${properties?.price}</span>
+            <span className="category">{properties?.category?.slug}</span>
+          </div>
+          <p>{truncate(properties?.description[0].text, 95)}</p>
+          <button className="card-btn">Add to Card</button>
+        </div>
+      </div>
+    </Styles>
+  );
 };
 
 Product.propTypes = {
-	properties: PropTypes.shape({
-		name: PropTypes.string.isRequired,
-		mainimage: PropTypes.object.isRequired,
-	}).isRequired,
+  properties: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    mainimage: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default Product;
