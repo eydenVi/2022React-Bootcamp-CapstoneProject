@@ -9,41 +9,29 @@ const Styles = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-	  justify-content: center;
-	  margin: 2.5em auto;
+    justify-content: center;
+    margin: 2.5em auto;
   }
-	
-	h2 {
-		font-size: 2.4em;
-		font-weight: lighter;
-		margin-top: 2em;
-	}
+
+  h2 {
+    font-size: 2.4em;
+    font-weight: lighter;
+    margin-top: 2em;
+  }
 `
-
-
-const Products = props => {
-	const { products } = props;
-	
-	const renderProducts = () => {
-		return products.map(product => {
-			const { data: productInfo } = product;
-			return (
-				<Product
+const Products = ({products}) => {
+	return (<Styles>
+		<h2>Capstone Products</h2>
+		<div className="cards-container">
+			{products.map(product => {
+				const {data: productInfo} = product;
+				return (<Product
 					properties={productInfo}
 					key={product.id}
-				/>
-			)
-		});
-	}
-	
-	return (
-		<Styles>
-			<h2>Capstone Products</h2>
-			<div className="cards-container">
-				{renderProducts()}
-			</div>
-		</Styles>
-	);
+				/>)
+			})}
+		</div>
+	</Styles>);
 };
 
 Products.propTypes = {

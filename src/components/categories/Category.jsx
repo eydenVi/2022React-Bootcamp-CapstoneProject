@@ -6,15 +6,15 @@ const Styles = styled.div`
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-	  margin: 0 .9em;
-	  cursor: pointer;
-	  border-radius: 5%;
-	  margin: 20px 20px;
+    margin: 0 .9em;
+    cursor: pointer;
+    border-radius: 5%;
+    margin: 20px 20px;
   }
-	
-	.card img {
+
+  .card img {
     width: 100%;
-	}
+  }
 
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -27,12 +27,12 @@ const Styles = styled.div`
 
 
 const Category = ({properties}) => {
-	const { main_image: image } = properties;
+	const {main_image: image} = properties;
 	
 	return (
 		<Styles>
 			<div className="card">
-				<img src={image?.url} alt="Avatar" width="150px" height="200px" />
+				<img src={image?.url} alt="Avatar" width="150px" height="200px"/>
 				<div className="container">
 					<h4>{properties?.name}</h4>
 				</div>

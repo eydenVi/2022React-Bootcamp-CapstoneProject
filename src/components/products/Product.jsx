@@ -59,22 +59,20 @@ const Styles = styled.div`
   .card-info .category {
     color: white;
     background-color: #aaad61;
-	  border-radius: 10%;
+    border-radius: 10%;
     padding: 5px;
   }
 `
 
 
-const Product = props => {
-	const { properties } = props;
+const Product = ({properties}) => {
+	const {mainimage: image} = properties
 	
-	const renderProductCard = () => {
-		const { mainimage: image } = properties
-		
-		return (
+	return (
+		<Styles>
 			<div className="card">
 				<div className="card-image">
-					<img src={image?.url} alt="Avatar" width="150px" height="200px" />
+					<img src={image?.url} alt="Avatar" width="150px" height="200px"/>
 				</div>
 				<div className="card-content">
 					<div className="card-title">
@@ -84,16 +82,10 @@ const Product = props => {
 						<span className="price">${properties?.price}</span>
 						<span className="category">{properties?.category?.slug}</span>
 					</div>
-					<p>{ truncate(properties?.description[0].text, 95)}</p>
+					<p>{truncate(properties?.description[0].text, 95)}</p>
 					<button className="card-btn">Add to Card</button>
 				</div>
 			</div>
-		)
-	}
-	
-	return (
-		<Styles>
-			{renderProductCard()}
 		</Styles>
 	);
 };
