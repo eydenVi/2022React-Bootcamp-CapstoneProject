@@ -10,8 +10,7 @@ const Styles = styled.div`
     border: none;
   }
 `
-const SearchField = props => {
-	const { changeSearchField } = props;
+const SearchField = ({changeSearchField}) => {
 	const [inputValue, setInputValue] = useState('');
 	
 	const handleInputChange = (e) => {

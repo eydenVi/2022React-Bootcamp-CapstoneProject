@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import SliderButton from "./SliderButton";
@@ -31,7 +31,7 @@ const Styles = styled.div`
   }
 
   @media screen and ${device.tablet} {
-    .slide-container{
+    .slide-container {
       max-width: 90%;
     }
   }
@@ -89,12 +89,10 @@ const Styles = styled.div`
   .dot.active {
     background: rgb(32, 32, 32);
   }
-	
 `
 
 const Slider = () => {
-	
-	const { results: slidesData } = dataSlider;
+	const {results: slidesData} = dataSlider;
 	const [slideIndex, setSlideIndex] = useState(1);
 	
 	
@@ -116,8 +114,8 @@ const Slider = () => {
 	
 	const renderSlides = () => {
 		return slidesData.map((slide, index) => {
-			const { data } = slide;
-			const { main_image: imageProp } = data;
+			const {data} = slide;
+			const {main_image: imageProp} = data;
 			return (
 				<div
 					key={slide.id}
@@ -136,28 +134,24 @@ const Slider = () => {
 	
 	const handleSlideIndex = (index) => setSlideIndex(index)
 	
-	const renderSlidesDots = () => slidesData.map((item, index) => (
-		<div
-			onClick={() => handleSlideIndex(index + 1)}
-			className={slideIndex === index + 1 ? "dot active" : "dot"}
-			key={item.id}
-		> </div>
-	));
-	
 	return (
 		<Styles>
 			<div className="slider-container">
 				{renderSlides()}
 				<SliderButton direction="next" move={nextSlide}/>
 				<SliderButton direction="prev" move={prevSlide}/>
-				{renderSlidesDots()}
+				{slidesData.map((item, index) => (
+					<div
+						onClick={() => handleSlideIndex(index + 1)}
+						className={slideIndex === index + 1 ? "dot active" : "dot"}
+						key={item.id}
+					/>
+				))}
 			</div>
 		</Styles>
 	);
 };
 
-Slider.propTypes = {
-
-}
+Slider.propTypes = {}
 
 export default Slider;
