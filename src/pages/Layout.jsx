@@ -4,14 +4,14 @@ import React from "react";
 import Footer from "./Footer";
 
 function Layout() {
-	
-	return (
-		<div className="App">
-			<Header />
-			<Content />
-			<Footer />
-		</div>
-	);
+  
+  return (
+    <div className="App">
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  );
 }
 
 export default Layout;

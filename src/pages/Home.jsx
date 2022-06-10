@@ -9,16 +9,16 @@ import rawProducts from "../mocks/en-us/products.json";
 
 
 const Home = () => {
-	const { results: categoryList } = rawCategories;
-	const { results: productList } = rawProducts;
-	
-	return (
-		<>
-			<Slider />
-			<Categories categories={categoryList} />
-			<Products products={productList} />
-		</>
-	);
+  const { results: categoryList } = rawCategories;
+  const { results: productList } = rawProducts;
+  
+  return (
+    <>
+      <Slider />
+      <Categories categories={categoryList} />
+      <Products products={productList} />
+    </>
+  );
 };
 
 export default Home;

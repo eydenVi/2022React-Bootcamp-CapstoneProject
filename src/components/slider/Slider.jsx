@@ -112,32 +112,28 @@ const Slider = () => {
     }
   }
   
-  const renderSlides = () => {
-    return slidesData.map((slide, index) => {
-      const {data} = slide;
-      const {main_image: imageProp} = data;
-      return (
-        <div
-          key={slide.id}
-          className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
-        >
-          <img
-            src={imageProp?.url}
-            alt={imageProp?.alt}
-            width={imageProp?.dimensions?.width}
-            height={imageProp?.dimensions?.height}
-          />
-        </div>
-      );
-    })
-  };
-  
   const handleSlideIndex = (index) => setSlideIndex(index)
   
   return (
     <Styles>
       <div className="slider-container">
-        {renderSlides()}
+        {slidesData.map((slide, index) => {
+          const {data} = slide;
+          const {main_image: imageProp} = data;
+          return (
+            <div
+              key={slide.id}
+              className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
+            >
+              <img
+                src={imageProp?.url}
+                alt={imageProp?.alt}
+                width={imageProp?.dimensions?.width}
+                height={imageProp?.dimensions?.height}
+              />
+            </div>
+          );
+        })}
         <SliderButton direction="next" move={nextSlide}/>
         <SliderButton direction="prev" move={prevSlide}/>
         {slidesData.map((item, index) => (
