@@ -90,7 +90,7 @@ const ProductList = () => {
       )
       setIsLoadingState(false);
     }, 2000)
-  }, [categoriesState]);
+  }, [categoriesState, productList]);
   
   
   return (
