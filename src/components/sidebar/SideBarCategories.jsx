@@ -30,8 +30,8 @@ const SideBarCategories = ({categories, categoriesState, setCategoriesState}) =>
     <Styles>
       {categories.map((category, index) => {
         return (
-          <div className="category-check">
-            <label key={category.name}>{category.name}</label>
+          <div className="category-check" key={category.id}>
+            <label key={category.id}>{category.name}</label>
             <input
               type="checkbox"
               name={category.name}

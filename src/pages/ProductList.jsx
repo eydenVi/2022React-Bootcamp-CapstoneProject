@@ -59,7 +59,7 @@ const ProductList = () => {
   const {results: categoryList} = rawCategories;
   let {results: productList} = rawProducts;
   
-  const categoriesData = categoryList.map(cat => cat.data);
+  const categoriesData = categoryList.map(cat => ({ ...cat.data, id: cat.id }));
   
   const [categoriesState, setCategoriesState] = useState(Object.fromEntries(
     categoriesData.map((cat) => {
