@@ -1,11 +1,9 @@
 import React from 'react';
 
-import Home from "./Home";
-
-const Content = props => {
+const Content = ({currentPage}) => {
   return (
     <>
-      <Home />
+      {currentPage}
     </>
   );
 };
