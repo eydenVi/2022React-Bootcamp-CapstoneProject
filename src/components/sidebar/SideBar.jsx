@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import SideBarCategories from "./SideBarCategories";
 import { device } from "../../utils/constants";
+import menuIcon from "../../icons/menu.svg";
 
 const Styles = styled.div`
 
@@ -81,7 +82,7 @@ const Sidebar = ({categories, categoriesState, setCategoriesState}) => {
   const handleNavButton = (isOpen) => {
     if(isOpen){
       setIsOpenSideBar(!isOpen);
-      setSideBarWidth("33px");
+      setSideBarWidth("25px");
     }
     else {
       setIsOpenSideBar(!isOpen);
@@ -93,7 +94,7 @@ const Sidebar = ({categories, categoriesState, setCategoriesState}) => {
     <Styles>
       <div className="sidebar" id="sidebarId" style={{ width: sideBarWidth }}>
         <span className="closeBtn" onClick={() => handleNavButton(isOpenSideBar)}>
-          <i className="bi bi-list" />
+          <img src={menuIcon} alt="" width="20px" height="20px" />
         </span>
         <div className="sidebar-content" style={{ display: isOpenSideBar ? "flex" : "none" }}>
           <div className="sidebar-header">
