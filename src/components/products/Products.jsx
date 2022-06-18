@@ -17,11 +17,10 @@ const Products = ({products}) => {
   return (
     <Styles>
       <div className="cards-container">
-        {products.map(product => {
-          const {data: productInfo} = product;
+        {products.map(({ data: productInfo }) => {
           return (<Product
             properties={productInfo}
-            key={product.id}
+            key={productInfo.sku}
           />)
         })}
       </div>
