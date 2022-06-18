@@ -10,28 +10,22 @@ const Styles = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2.5em auto;
-  }
-
-  h2 {
-    font-size: 2.4em;
-    font-weight: lighter;
-    margin-top: 2em;
+    margin: 2.5em auto 0;
   }
 `
 const Products = ({products}) => {
-  return (<Styles>
-    <h2>Capstone Products</h2>
-    <div className="cards-container">
-      {products.map(product => {
-        const {data: productInfo} = product;
-        return (<Product
-          properties={productInfo}
-          key={product.id}
-        />)
-      })}
-    </div>
-  </Styles>);
+  return (
+    <Styles>
+      <div className="cards-container">
+        {products.map(({ data: productInfo }) => {
+          return (<Product
+            properties={productInfo}
+            key={productInfo.sku}
+          />)
+        })}
+      </div>
+    </Styles>
+  );
 };
 
 Products.propTypes = {

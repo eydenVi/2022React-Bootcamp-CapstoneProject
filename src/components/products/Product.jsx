@@ -6,8 +6,8 @@ import truncate from "../../utils/truncate";
 
 const Styles = styled.div`
   .card {
-    width: 20em;
-    height: 32em;
+    width: 14em;
+    height: 33em;
     overflow: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -34,12 +34,12 @@ const Styles = styled.div`
   }
 
   .card-content h4 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: lighter;
   }
 
   .card-btn {
-    width: 100%;
+    width: 90%;
     height: 50px;
     border-radius: 4%;
     font-weight: bold;
@@ -53,7 +53,12 @@ const Styles = styled.div`
   .card-info {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between;;
+  }
+  
+  .card-description{
+    display: block;
+    margin-bottom: 4em;
   }
 
   .card-info .category {
@@ -82,7 +87,9 @@ const Product = ({properties}) => {
             <span className="price">${properties?.price}</span>
             <span className="category">{properties?.category?.slug}</span>
           </div>
-          <p>{truncate(properties?.description[0].text, 95)}</p>
+          <div className="card-description">
+            <p>{truncate(properties?.description[0].text, 45)}</p>
+          </div>
           <button className="card-btn">Add to Card</button>
         </div>
       </div>
